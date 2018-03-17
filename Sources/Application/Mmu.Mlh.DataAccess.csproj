@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Mmu.Mlh.DataAccess</AssemblyName>
+    <RootNamespace>Mmu.Mlh.DataAccess</RootNamespace>
+    <Features>IOperation</Features>
+    <CodeAnalysisRuleSet>..\..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0" />
+    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.1.13" />
+    <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
+  </ItemGroup>
+
+</Project>

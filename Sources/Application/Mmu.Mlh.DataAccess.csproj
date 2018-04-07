@@ -5,13 +5,29 @@
     <AssemblyName>Mmu.Mlh.DataAccess</AssemblyName>
     <RootNamespace>Mmu.Mlh.DataAccess</RootNamespace>
     <Features>IOperation</Features>
-    <CodeAnalysisRuleSet>..\..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
+    <Authors>DrMueller</Authors>
+    <Product>MyLittleHelpers.DataAccess</Product>
+    <Description>DrMuellers little Data Access</Description>
+    <PackageIconUrl>https://raw.githubusercontent.com/DrMueller/MLH.DataAccess/master/Sources/Application/Infrastructure/Assets/M.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ServiceProvisioning\**" />
+    <EmbeddedResource Remove="ServiceProvisioning\**" />
+    <None Remove="ServiceProvisioning\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0" />
-    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.1.13" />
+    <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="1.0.0" />
+    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.1.34" />
     <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
+    <PackageReference Include="StructureMap" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\Assets\" />
   </ItemGroup>
 
 </Project>

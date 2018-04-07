@@ -5,6 +5,7 @@ using Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services;
 using Mmu.Mlh.DataAccess.Areas.DataModeling.Models;
 using Mmu.Mlh.DataAccess.Areas.DataModeling.Services;
 using Mmu.Mlh.DomainExtensions.Areas.DomainModeling;
+using Mmu.Mlh.DomainExtensions.Areas.Repositories;
 
 namespace Mmu.Mlh.DataAccess.Areas.Repositories
 {

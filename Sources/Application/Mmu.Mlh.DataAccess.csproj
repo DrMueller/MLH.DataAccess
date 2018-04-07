@@ -21,7 +21,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0" />
     <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="1.0.10" />
-    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.1.34" />
+    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.1.33" />
     <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
     <PackageReference Include="StructureMap" Version="4.6.1" />
   </ItemGroup>

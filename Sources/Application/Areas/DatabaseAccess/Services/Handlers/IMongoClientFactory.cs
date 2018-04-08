@@ -2,7 +2,7 @@
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers
 {
-    public interface IMongoClientFactory
+    internal interface IMongoClientFactory
     {
         MongoClient Create();
     }

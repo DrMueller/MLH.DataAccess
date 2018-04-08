@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization;
 
 namespace Mmu.Mlh.DataAccess.Areas.DataMapping.Services.Implementation
 {
-    public class DataMappingInitializationService : IDataMappingInitializationService
+    internal class DataMappingInitializationService : IDataMappingInitializationService
     {
         private readonly IReadOnlyCollection<IDataMapper> _dataMappers;
         private readonly object _lock = new object();

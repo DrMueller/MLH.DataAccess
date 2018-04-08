@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation
 {
-    public class DataModelRepository<T> : IDataModelRepository<T>
+    internal class DataModelRepository<T> : IDataModelRepository<T>
         where T : DataModelBase
     {
         private readonly IMongoDbFilterDefinitionFactory<T> _filterDefinitionFactory;

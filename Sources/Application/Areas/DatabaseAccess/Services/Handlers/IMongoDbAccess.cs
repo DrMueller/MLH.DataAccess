@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers
 {
-    public interface IMongoDbAccess
+    internal interface IMongoDbAccess
     {
         IMongoCollection<T> GetDatabaseCollection<T>()
             where T : DataModelBase;

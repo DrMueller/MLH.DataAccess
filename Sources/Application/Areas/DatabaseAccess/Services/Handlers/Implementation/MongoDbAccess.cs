@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers.Implementation
 {
-    public class MongoDbAccess : IMongoDbAccess
+    internal class MongoDbAccess : IMongoDbAccess
     {
         private readonly DatabaseSettings _databaseSettings;
         private readonly IMongoClientFactory _mongoClientFactory;

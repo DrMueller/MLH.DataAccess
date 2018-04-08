@@ -5,6 +5,8 @@ using Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services.CoreMappings;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services.Implementation;
+using Mmu.Mlh.DataAccess.Areas.IdGeneration;
+using Mmu.Mlh.DataAccess.Areas.IdGeneration.Implementation;
 using StructureMap;
 
 namespace Mmu.Mlh.DataAccess.Infrastructure.DependencyInjection
@@ -22,6 +24,7 @@ namespace Mmu.Mlh.DataAccess.Infrastructure.DependencyInjection
 
             For<IDataMapper>().Use<DataModelBaseDataMapper>();
             For<IDataMappingInitializationService>().Use<DataMappingInitializationService>().Singleton();
+            For<IEntityIdFactory>().Use<EntityIdFactory>().Singleton();
 
             For<IMongoClientFactory>().Use<MongoClientFactory>().Singleton();
             For<IMongoDbAccess>().Use<MongoDbAccess>().Singleton();

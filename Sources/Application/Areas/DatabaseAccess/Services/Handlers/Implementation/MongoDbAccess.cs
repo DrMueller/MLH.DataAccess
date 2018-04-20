@@ -14,7 +14,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers.Implementati
             IDatabaseSettingsProvider databaseSettingsProvider)
         {
             _mongoClientFactory = mongoClientFactory;
-            _databaseSettings = databaseSettingsProvider.ProvideSettings();
+            _databaseSettings = databaseSettingsProvider.ProvideDatabaseSettings();
         }
 
         public IMongoCollection<T> GetDatabaseCollection<T>()

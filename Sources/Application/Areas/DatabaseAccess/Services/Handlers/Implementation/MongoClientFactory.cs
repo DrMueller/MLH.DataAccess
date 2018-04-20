@@ -12,7 +12,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers.Implementati
         public MongoClientFactory(IDatabaseSettingsProvider databaseSettingsProvider, IDataMappingInitializationService dataMappingInitializationService)
         {
             dataMappingInitializationService.AssureMappingsAreInitialized();
-            _databaseSettings = databaseSettingsProvider.ProvideSettings();
+            _databaseSettings = databaseSettingsProvider.ProvideDatabaseSettings();
         }
 
         public MongoClient Create()

@@ -4,6 +4,6 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services
 {
     public interface IDatabaseSettingsProvider
     {
-        DatabaseSettings ProvideSettings();
+        DatabaseSettings ProvideDatabaseSettings();
     }
 }

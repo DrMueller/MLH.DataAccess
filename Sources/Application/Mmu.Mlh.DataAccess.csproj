@@ -26,10 +26,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0" />
-    <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="1.0.14" />
-    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.2.13" />
+    <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="1.0.15" />
+    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="1.2.15" />
     <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
-    <PackageReference Include="StructureMap" Version="4.6.1" />
+    <PackageReference Include="StructureMap" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>

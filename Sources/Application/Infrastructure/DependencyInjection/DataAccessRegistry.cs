@@ -5,8 +5,8 @@ using Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services.CoreMappings;
 using Mmu.Mlh.DataAccess.Areas.DataMapping.Services.Implementation;
-using Mmu.Mlh.DataAccess.Areas.IdGeneration;
-using Mmu.Mlh.DataAccess.Areas.IdGeneration.Implementation;
+using Mmu.Mlh.DataAccess.Areas.Factories;
+using Mmu.Mlh.DomainExtensions.Areas.Factories;
 using StructureMap;
 
 namespace Mmu.Mlh.DataAccess.Infrastructure.DependencyInjection

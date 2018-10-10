@@ -5,8 +5,8 @@ using MongoDB.Driver;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers.Implementation
 {
-    internal class MongoDbFilterDefinitionFactory<T> : IMongoDbFilterDefinitionFactory<T>
-        where T : DataModelBase
+    internal class MongoDbFilterDefinitionFactory<T, TId> : IMongoDbFilterDefinitionFactory<T, TId>
+        where T : DataModelBase<TId>
     {
         public FilterDefinition<T> CreateFilterDefinition(Expression<Func<T, bool>> predicate)
         {

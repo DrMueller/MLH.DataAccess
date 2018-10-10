@@ -17,8 +17,8 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Handlers.Implementati
             _databaseSettings = databaseSettingsProvider.ProvideDatabaseSettings();
         }
 
-        public IMongoCollection<T> GetDatabaseCollection<T>()
-            where T : DataModelBase
+        public IMongoCollection<T> GetDatabaseCollection<T, TId>()
+            where T : DataModelBase<TId>
         {
             var db = GetDatabase();
             var result = db.GetCollection<T>(_databaseSettings.CollectionName);

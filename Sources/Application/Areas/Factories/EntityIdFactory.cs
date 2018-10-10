@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Mmu.Mlh.DataAccess.Areas.Factories
 {
-    internal class EntityIdFactory : IEntityIdFactory
+    internal class EntityIdFactory : IEntityIdFactory<string>
     {
         public string CreateEntityId()
         {

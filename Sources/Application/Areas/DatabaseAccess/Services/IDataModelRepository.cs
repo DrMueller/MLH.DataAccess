@@ -6,10 +6,10 @@ using Mmu.Mlh.DataAccess.Areas.DataModeling.Models;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services
 {
-    public interface IDataModelRepository<T>
-        where T : DataModelBase
+    public interface IDataModelRepository<T, TId>
+        where T : DataModelBase<TId>
     {
-        Task DeleteAsync(string id);
+        Task DeleteAsync(TId id);
 
         Task<IReadOnlyCollection<T>> LoadAsync(Expression<Func<T, bool>> predicate);
 

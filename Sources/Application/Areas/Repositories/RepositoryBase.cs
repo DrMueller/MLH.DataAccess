@@ -9,20 +9,20 @@ using Mmu.Mlh.DomainExtensions.Areas.Repositories;
 
 namespace Mmu.Mlh.DataAccess.Areas.Repositories
 {
-    public abstract class RepositoryBase<TAggregateRoot, TDataModel> : IRepository<TAggregateRoot>
-        where TAggregateRoot : AggregateRoot
-        where TDataModel : DataModelBase
+    public abstract class RepositoryBase<TAggregateRoot, TDataModel, TId> : IRepository<TAggregateRoot, TId>
+        where TAggregateRoot : AggregateRoot<TId>
+        where TDataModel : DataModelBase<TId>
     {
-        private readonly IDataModelAdapter<TDataModel, TAggregateRoot> _dataModelAdapter;
-        private readonly IDataModelRepository<TDataModel> _dataModelRepository;
+        private readonly IDataModelAdapter<TDataModel, TAggregateRoot, TId> _dataModelAdapter;
+        private readonly IDataModelRepository<TDataModel, TId> _dataModelRepository;
 
-        protected RepositoryBase(IDataModelRepository<TDataModel> dataModelRepository, IDataModelAdapter<TDataModel, TAggregateRoot> dataModelAdapter)
+        protected RepositoryBase(IDataModelRepository<TDataModel, TId> dataModelRepository, IDataModelAdapter<TDataModel, TAggregateRoot, TId> dataModelAdapter)
         {
             _dataModelRepository = dataModelRepository;
             _dataModelAdapter = dataModelAdapter;
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteAsync(TId id)
         {
             await _dataModelRepository.DeleteAsync(id);
         }
@@ -34,9 +34,9 @@ namespace Mmu.Mlh.DataAccess.Areas.Repositories
             return result;
         }
 
-        public async Task<TAggregateRoot> LoadByIdAsync(string id)
+        public async Task<TAggregateRoot> LoadByIdAsync(TId id)
         {
-            var dataModel = await _dataModelRepository.LoadSingleAsync(f => f.Id == id);
+            var dataModel = await _dataModelRepository.LoadSingleAsync(f => f.Id.Equals(id));
             var aggregateRoot = _dataModelAdapter.Adapt(dataModel);
             return aggregateRoot;
         }

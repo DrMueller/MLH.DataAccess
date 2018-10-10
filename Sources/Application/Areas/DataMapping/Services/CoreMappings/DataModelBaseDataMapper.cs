@@ -7,13 +7,14 @@ namespace Mmu.Mlh.DataAccess.Areas.DataMapping.Services.CoreMappings
     {
         public void InitializeDataMapping()
         {
-            BsonClassMap.RegisterClassMap<DataModelBase>(
-                f =>
-                {
-                    f.AutoMap();
-                    f.MapIdMember(c => c.Id);
-                    f.MapMember(c => c.DataModelTypeName);
-                });
+            var dataModelBaseType = typeof(DataModelBase<>);
+
+            var baseMap = new BsonClassMap(dataModelBaseType);
+            baseMap.AutoMap();
+            baseMap.MapIdMember(dataModelBaseType.GetProperty("Id"));
+            baseMap.MapIdMember(dataModelBaseType.GetProperty("DataModelTypeName"));
+
+            BsonClassMap.RegisterClassMap(baseMap);
         }
     }
 }

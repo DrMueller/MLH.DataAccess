@@ -4,9 +4,9 @@ using Mmu.Mlh.DomainExtensions.Areas.DomainModeling;
 
 namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Services.Implementation
 {
-    public abstract class DataModelAdapterBase<TDataModel, TAggregateRoot> : IDataModelAdapter<TDataModel, TAggregateRoot>
-        where TDataModel : DataModelBase
-        where TAggregateRoot : AggregateRoot
+    public abstract class DataModelAdapterBase<TDataModel, TAggregateRoot, TId> : IDataModelAdapter<TDataModel, TAggregateRoot, TId>
+        where TDataModel : DataModelBase<TId>
+        where TAggregateRoot : AggregateRoot<TId>
     {
         private readonly IMapper _mapper;
 

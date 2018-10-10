@@ -9,22 +9,22 @@ using MongoDB.Driver;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation
 {
-    internal class DataModelRepository<T> : IDataModelRepository<T>
-        where T : DataModelBase
+    internal class DataModelRepository<T, TId> : IDataModelRepository<T, TId>
+        where T : DataModelBase<TId>
     {
-        private readonly IMongoDbFilterDefinitionFactory<T> _filterDefinitionFactory;
+        private readonly IMongoDbFilterDefinitionFactory<T, TId> _filterDefinitionFactory;
         private readonly IMongoDbAccess _mongoDbAccess;
 
-        public DataModelRepository(IMongoDbAccess mongoDbAccess, IMongoDbFilterDefinitionFactory<T> filterDefinitionFactory)
+        public DataModelRepository(IMongoDbAccess mongoDbAccess, IMongoDbFilterDefinitionFactory<T, TId> filterDefinitionFactory)
         {
             _mongoDbAccess = mongoDbAccess;
             _filterDefinitionFactory = filterDefinitionFactory;
         }
 
-        public Task DeleteAsync(string id)
+        public Task DeleteAsync(TId id)
         {
-            var collection = _mongoDbAccess.GetDatabaseCollection<T>();
-            return collection.DeleteOneAsync(x => x.Id == id);
+            var collection = _mongoDbAccess.GetDatabaseCollection<T, TId>();
+            return collection.DeleteOneAsync(x => x.Id.Equals(id));
         }
 
         public async Task<IReadOnlyCollection<T>> LoadAsync(Expression<Func<T, bool>> predicate) => await LoadByExpressionAsync(predicate);
@@ -38,9 +38,9 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation
 
         public async Task<T> SaveAsync(T aggregateRoot)
         {
-            var collection = _mongoDbAccess.GetDatabaseCollection<T>();
+            var collection = _mongoDbAccess.GetDatabaseCollection<T, TId>();
 
-            var filter = _filterDefinitionFactory.CreateFilterDefinition(x => x.Id == aggregateRoot.Id);
+            var filter = _filterDefinitionFactory.CreateFilterDefinition(x => x.Id.Equals(aggregateRoot.Id));
             var updateOptions = new FindOneAndReplaceOptions<T> { IsUpsert = true, ReturnDocument = ReturnDocument.After };
             var result = await collection.FindOneAndReplaceAsync(filter, aggregateRoot, updateOptions);
             return result;
@@ -48,7 +48,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services.Implementation
 
         private async Task<IReadOnlyCollection<T>> LoadByExpressionAsync(Expression<Func<T, bool>> predicate)
         {
-            var collection = _mongoDbAccess.GetDatabaseCollection<T>();
+            var collection = _mongoDbAccess.GetDatabaseCollection<T, TId>();
 
             var filter = _filterDefinitionFactory.CreateFilterDefinition(predicate);
             var result = await collection.Find(filter).ToListAsync();

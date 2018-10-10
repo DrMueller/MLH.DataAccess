@@ -24,12 +24,12 @@ namespace Mmu.Mlh.DataAccess.Infrastructure.DependencyInjection
 
             For<IDataMapper>().Use<DataModelBaseDataMapper>();
             For<IDataMappingInitializationService>().Use<DataMappingInitializationService>().Singleton();
-            For<IEntityIdFactory>().Use<EntityIdFactory>().Singleton();
+            For(typeof(IEntityIdFactory<>)).Use(typeof(EntityIdFactory)).Singleton();
 
             For<IMongoClientFactory>().Use<MongoClientFactory>().Singleton();
             For<IMongoDbAccess>().Use<MongoDbAccess>().Singleton();
-            For(typeof(IMongoDbFilterDefinitionFactory<>)).Use(typeof(MongoDbFilterDefinitionFactory<>)).Singleton();
-            For(typeof(IDataModelRepository<>)).Use(typeof(DataModelRepository<>));
+            For(typeof(IMongoDbFilterDefinitionFactory<,>)).Use(typeof(MongoDbFilterDefinitionFactory<,>)).Singleton();
+            For(typeof(IDataModelRepository<,>)).Use(typeof(DataModelRepository<,>));
         }
     }
 }

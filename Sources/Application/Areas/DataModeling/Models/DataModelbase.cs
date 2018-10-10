@@ -1,15 +1,8 @@
 ﻿namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 {
-    public abstract class DataModelBase
+    public abstract class DataModelBase<TId>
     {
-        public string DataModelTypeName
-        {
-            get
-            {
-                return GetType().FullName;
-            }
-        }
-
-        public string Id { get; set; }
+        public string DataModelTypeName => GetType().FullName;
+        public TId Id { get; set; }
     }
 }

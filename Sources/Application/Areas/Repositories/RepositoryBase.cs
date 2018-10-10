@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Mmu.Mlh.DataAccess.Areas.DatabaseAccess.Services;
+using Mmu.Mlh.DataAccess.Areas.DatabaseAccess;
 using Mmu.Mlh.DataAccess.Areas.DataModeling.Models;
 using Mmu.Mlh.DataAccess.Areas.DataModeling.Services;
 using Mmu.Mlh.DomainExtensions.Areas.DomainModeling;

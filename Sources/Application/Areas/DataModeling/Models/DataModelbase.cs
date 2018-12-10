@@ -7,7 +7,7 @@
     public abstract class DataModelBase<TId>
     {
         public string DataModelTypeName => GetType().FullName;
-        public TId Id { get; set; }
+        public virtual TId Id { get; set; }
 
         public static bool operator ==(DataModelBase<TId> a, DataModelBase<TId> b)
         {

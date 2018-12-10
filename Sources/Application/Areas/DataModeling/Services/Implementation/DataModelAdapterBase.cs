@@ -17,7 +17,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Services.Implementation
 
         public abstract TAggregateRoot Adapt(TDataModel dataModel);
 
-        public TDataModel Adapt(TAggregateRoot aggregateRoot)
+        public virtual TDataModel Adapt(TAggregateRoot aggregateRoot)
         {
             return _mapper.Map<TDataModel>(aggregateRoot);
         }

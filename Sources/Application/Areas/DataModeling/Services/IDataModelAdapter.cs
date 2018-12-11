@@ -4,7 +4,7 @@ using Mmu.Mlh.DomainExtensions.Areas.DomainModeling;
 namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Services
 {
     public interface IDataModelAdapter<TDataModel, TAggregateRoot, TId>
-        where TDataModel : DataModelBase<TId>
+        where TDataModel : AggregateRootDataModel<TId>
         where TAggregateRoot : AggregateRoot<TId>
     {
         TAggregateRoot Adapt(TDataModel dataModel);

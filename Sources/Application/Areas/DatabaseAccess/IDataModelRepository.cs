@@ -6,13 +6,8 @@ using Mmu.Mlh.DataAccess.Areas.DataModeling.Models;
 
 namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess
 {
-    /// <summary>
-    ///     This Interface provides the low level implementation to the data store, also using expressions for performant
-    ///     access.
-    ///     For example, the MongoDbDataModelRepository implements this one
-    /// </summary>
     public interface IDataModelRepository<T, TId>
-        where T : DataModelBase<TId>
+        where T : AggregateRootDataModel<TId>
     {
         Task DeleteAsync(TId id);
 
@@ -20,6 +15,6 @@ namespace Mmu.Mlh.DataAccess.Areas.DatabaseAccess
 
         Task<T> LoadSingleAsync(Expression<Func<T, bool>> predicate);
 
-        Task<T> SaveAsync(T dataModelBase);
+        Task<T> SaveAsync(T aggregateRootDataModel);
     }
 }

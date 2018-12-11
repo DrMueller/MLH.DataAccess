@@ -1,15 +1,10 @@
 ﻿namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 {
-    /// <summary>
-    ///     This class represents the technical entity persisted into the data store
-    /// </summary>
-    /// <typeparam name="TId"></typeparam>
-    public abstract class DataModelBase<TId>
+    public abstract class EntityDataModel<TId>
     {
-        public string DataModelTypeName => GetType().FullName;
-        public virtual TId Id { get; set; }
+        public TId Id { get; set; }
 
-        public static bool operator ==(DataModelBase<TId> a, DataModelBase<TId> b)
+        public static bool operator ==(EntityDataModel<TId> a, EntityDataModel<TId> b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
             {
@@ -24,14 +19,14 @@
             return a.Equals(b);
         }
 
-        public static bool operator !=(DataModelBase<TId> a, DataModelBase<TId> b)
+        public static bool operator !=(EntityDataModel<TId> a, EntityDataModel<TId> b)
         {
             return !(a == b);
         }
 
         public override bool Equals(object obj)
         {
-            var compareTo = obj as DataModelBase<TId>;
+            var compareTo = obj as EntityDataModel<TId>;
 
             if (ReferenceEquals(compareTo, null))
             {

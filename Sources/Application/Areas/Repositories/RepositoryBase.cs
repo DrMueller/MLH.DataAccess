@@ -11,7 +11,7 @@ namespace Mmu.Mlh.DataAccess.Areas.Repositories
 {
     public abstract class RepositoryBase<TAggregateRoot, TDataModel, TId> : IRepository<TAggregateRoot, TId>
         where TAggregateRoot : AggregateRoot<TId>
-        where TDataModel : DataModelBase<TId>
+        where TDataModel : AggregateRootDataModel<TId>
     {
         private readonly IDataModelAdapter<TDataModel, TAggregateRoot, TId> _dataModelAdapter;
         private readonly IDataModelRepository<TDataModel, TId> _dataModelRepository;

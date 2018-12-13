@@ -37,6 +37,11 @@ namespace Mmu.Mlh.DataAccess.Areas.Repositories
         public async Task<TAggregateRoot> LoadByIdAsync(TId id)
         {
             var dataModel = await _dataModelRepository.LoadSingleAsync(f => f.Id.Equals(id));
+            if (dataModel == null)
+            {
+                return null;
+            }
+
             var aggregateRoot = _dataModelAdapter.Adapt(dataModel);
             return aggregateRoot;
         }

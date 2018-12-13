@@ -5,17 +5,17 @@ using System.Reflection;
 
 namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 {
-    public abstract class ValueObjectDataModelBase<T> : IEquatable<T>
-        where T : ValueObjectDataModelBase<T>
+    public abstract class ValueObjectDataModel<T> : IEquatable<T>
+        where T : ValueObjectDataModel<T>
     {
         protected abstract IReadOnlyCollection<string> PropertyNamesToCompare { get; }
 
-        public static bool operator ==(ValueObjectDataModelBase<T> x, ValueObjectDataModelBase<T> y)
+        public static bool operator ==(ValueObjectDataModel<T> x, ValueObjectDataModel<T> y)
         {
             return x.Equals(y);
         }
 
-        public static bool operator !=(ValueObjectDataModelBase<T> x, ValueObjectDataModelBase<T> y)
+        public static bool operator !=(ValueObjectDataModel<T> x, ValueObjectDataModel<T> y)
         {
             return !(x == y);
         }

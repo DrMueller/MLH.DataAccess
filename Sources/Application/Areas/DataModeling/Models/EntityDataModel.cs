@@ -2,6 +2,7 @@
 {
     public abstract class EntityDataModel<TId>
     {
+        public string DataModelTypeName => GetType().FullName;
         public TId Id { get; set; }
 
         public static bool operator ==(EntityDataModel<TId> a, EntityDataModel<TId> b)

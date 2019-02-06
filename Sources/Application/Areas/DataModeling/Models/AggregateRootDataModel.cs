@@ -2,6 +2,5 @@
 {
     public abstract class AggregateRootDataModel<TId> : EntityDataModel<TId>
     {
-        public string DataModelTypeName => GetType().FullName;
     }
 }

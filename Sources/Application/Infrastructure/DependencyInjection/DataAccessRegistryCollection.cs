@@ -1,15 +1,15 @@
-﻿using StructureMap;
+﻿using Lamar;
 
 namespace Mmu.Mlh.DataAccess.Infrastructure.DependencyInjection
 {
-    public class DataAccessRegistry : Registry
+    public class DataAccessRegistryCollection : ServiceRegistry
     {
-        public DataAccessRegistry()
+        public DataAccessRegistryCollection()
         {
             Scan(
                 scanner =>
                 {
-                    scanner.AssemblyContainingType<DataAccessRegistry>();
+                    scanner.AssemblyContainingType<DataAccessRegistryCollection>();
                     scanner.WithDefaultConventions();
                 });
         }

@@ -26,10 +26,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Lamar" Version="4.3.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.2" />
     <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="2.0.5" />
-    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="2.0.9" />
-    <PackageReference Include="StructureMap" Version="4.7.0" />
+    <PackageReference Include="Mmu.Mlh.LanguageExtensions" Version="2.3.87" />
   </ItemGroup>
 
   <ItemGroup>

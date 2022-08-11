@@ -1,5 +1,8 @@
-﻿namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
+﻿using JetBrains.Annotations;
+
+namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 {
+    [PublicAPI]
     public abstract class EntityDataModel<TId>
     {
         public string DataModelTypeName => GetType().FullName;
@@ -49,6 +52,7 @@
 
         public override int GetHashCode()
         {
+            // ReSharper disable once NonReadonlyMemberInGetHashCode
             return (GetType() + Id.ToString()).GetHashCode();
         }
     }

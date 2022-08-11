@@ -12,7 +12,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 
         public static bool operator ==(ValueObjectDataModel<T> x, ValueObjectDataModel<T> y)
         {
-            return x.Equals(y);
+            return x != null && x.Equals(y);
         }
 
         public static bool operator !=(ValueObjectDataModel<T> x, ValueObjectDataModel<T> y)
@@ -100,7 +100,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 
             while (currentType != typeof(object))
             {
-                fields.AddRange(currentType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public));
+                fields.AddRange(currentType!.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public));
                 currentType = currentType.GetTypeInfo().BaseType;
             }
 

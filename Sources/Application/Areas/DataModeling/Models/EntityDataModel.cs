@@ -30,9 +30,7 @@ namespace Mmu.Mlh.DataAccess.Areas.DataModeling.Models
 
         public override bool Equals(object obj)
         {
-            var compareTo = obj as EntityDataModel<TId>;
-
-            if (ReferenceEquals(compareTo, null))
+            if (!(obj is EntityDataModel<TId> compareTo))
             {
                 return false;
             }

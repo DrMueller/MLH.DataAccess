@@ -26,11 +26,14 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="Mmu.Mlh.DomainExtensions" Version="2.2.13" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Infrastructure\Assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MLH.DomainExtensions\Sources\Application\Mmu.Mlh.DomainExtensions.csproj" />
   </ItemGroup>
 
 </Project>
